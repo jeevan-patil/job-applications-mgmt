@@ -1,4 +1,4 @@
-package xyz.jeevan.jobs;
+package xyz.jeevan.jobs.dto;
 
 import javax.validation.constraints.NotNull;
 

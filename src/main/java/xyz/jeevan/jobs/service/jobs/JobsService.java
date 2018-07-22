@@ -1,7 +1,7 @@
 package xyz.jeevan.jobs.service.jobs;
 
 import java.util.List;
-import xyz.jeevan.jobs.JobOffer;
+import xyz.jeevan.jobs.dto.JobOffer;
 import xyz.jeevan.jobs.domain.Offer;
 
 public interface JobsService {

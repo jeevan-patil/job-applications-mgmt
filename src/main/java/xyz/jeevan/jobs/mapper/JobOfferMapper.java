@@ -1,6 +1,6 @@
 package xyz.jeevan.jobs.mapper;
 
-import xyz.jeevan.jobs.JobOffer;
+import xyz.jeevan.jobs.dto.JobOffer;
 import xyz.jeevan.jobs.domain.Offer;
 import xyz.jeevan.jobs.util.DateUtil;
 

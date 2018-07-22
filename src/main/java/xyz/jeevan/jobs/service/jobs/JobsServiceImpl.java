@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import xyz.jeevan.jobs.dto.JobOffer;
 import xyz.jeevan.jobs.domain.Offer;
+import xyz.jeevan.jobs.dto.JobOffer;
 import xyz.jeevan.jobs.exception.ApplicationException;
 import xyz.jeevan.jobs.exception.ErrorResponseEnum;
 import xyz.jeevan.jobs.helper.PaginationHelper;
@@ -22,9 +22,6 @@ public class JobsServiceImpl implements JobsService {
   @Autowired
   private JobsRepository jobsRepository;
 
-  @Autowired
-  private PaginationHelper paginationHelper;
-
   @Override
   public Offer getById(String id) {
     Assert.notNull(id, "Job offer id can not be null.");
@@ -32,13 +29,14 @@ public class JobsServiceImpl implements JobsService {
     try {
       return jobsRepository.findById(id).get();
     } catch (Exception e) {
+      LOG.error("");
       throw new ApplicationException(ErrorResponseEnum.JOB_OFFER_NOT_FOUND);
     }
   }
 
   @Override
   public List<Offer> getByPages(Integer page, Integer size) {
-    Page<Offer> jobOffers = jobsRepository.findAll(paginationHelper.pageRequest(page, size));
+    Page<Offer> jobOffers = jobsRepository.findAll(PaginationHelper.pageRequest(page, size));
     return jobOffers.getContent();
   }
 

@@ -1,0 +1,5 @@
+application:
+  mongo:
+    host: localhost
+    database: jobs-mgmt
+    port: 45017
